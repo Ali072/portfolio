@@ -19,3 +19,159 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Nieuwe stijlen voor page.tsx */
+.main-container {
+  @apply min-h-screen p-8 max-w-7xl mx-auto;
+}
+
+.page-header {
+  @apply text-4xl font-bold mb-8 text-center;
+}
+
+.content-section {
+  @apply bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 mb-6;
+}
+
+.grid-layout {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
+}
+
+.card {
+  @apply bg-gray-50 dark:bg-gray-700 rounded-lg p-4 hover:shadow-xl transition-shadow;
+}
+
+.button {
+  @apply px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors;
+}
+
+.sidebar {
+  width: 250px; /* Vaste breedte */
+  height: 100%; /* Hoogte vult de container */
+  background-color: #2c3e50; /* Donkere kleur */
+  color: #ecf0f1;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.content {
+  flex: 1; /* Vul de resterende ruimte op */
+  padding: 20px; /* Ruimte rondom de content */
+  background-color: var(--background);
+  overflow-y: auto; /* Maak scrollbaar als er veel content is */
+}
+
+.sidebar-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.sidebar-list {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar-item {
+  margin: 15px 0;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.sidebar-item:hover {
+  color: #1abc9c;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  color: #333;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+input, textarea, button {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* globals.css */
+/* globals.css */
+
+/* Algemeen voor de navbar */
+.navbar {
+  background: linear-gradient(90deg, rgba(29, 78, 216, 1) 0%, rgba(156, 39, 176, 1) 100%); /* Mooie gradient achtergrond */
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+/* Logo van de navbar */
+.navbar-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* Navigatie links */
+.navbar-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.navbar-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.125rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+/* Hover effect voor links */
+.navbar-links a:hover {
+  color: #fbbf24; /* Geel tijdens hover */
+}
+
+/* Hamburger menu voor kleinere schermen */
+.hamburger {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Responsieve aanpassing voor mobiele weergave */
+@media (max-width: 768px) {
+  .navbar-links {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.8); /* Achtergrond voor mobiel menu */
+    padding: 1rem;
+  }
+
+  .navbar-links.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
+
