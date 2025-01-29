@@ -8,7 +8,7 @@ import styles from "./contact.module.css";
 export default function Contact() {
   const [formData, setFormData] = useState({
     name: "",
-    email: "",
+    from_name: "",
     message: "",
   });
 
@@ -31,7 +31,7 @@ export default function Contact() {
         "template_hxxig29",     // Vervang met je Template ID
         { 
           name: formData.name,
-          email: formData.email,
+          from_name: formData.from_name,
           message: formData.message,
         },
         "iiIKDTgJCQopq7N1q"        // Vervang met je Public Key
@@ -39,7 +39,7 @@ export default function Contact() {
 
       if (result.text === "OK") {
         setSuccessMessage("Je bericht is verzonden!");
-        setFormData({ name: "", email: "", message: "" });
+        setFormData({ name: "", from_name: "", message: "" });
       }
     } catch (error) {
       console.error("Fout bij het verzenden:", JSON.stringify(error, null, 2));
@@ -78,7 +78,7 @@ export default function Contact() {
                 type="email"
                 id="email"
                 name="email"
-                value={formData.email}
+                value={formData.from_name}
                 onChange={handleChange}
                 className={styles.input}
                 required
