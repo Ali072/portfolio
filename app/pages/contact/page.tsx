@@ -8,7 +8,7 @@ import styles from "./contact.module.css";
 export default function Contact() {
   const [formData, setFormData] = useState({
     name: "",
-    from_name: "",
+    email: "",
     message: "",
   });
 
@@ -27,19 +27,21 @@ export default function Contact() {
 
     try {
       const result = await emailjs.send(
-        "service_3tef2dv",      // Vervang met je Service ID
-        "template_hxxig29",     // Vervang met je Template ID
-        { 
-          name: formData.name,
-          from_name: formData.from_name,
-          message: formData.message,
-        },
-        "iiIKDTgJCQopq7N1q"        // Vervang met je Public Key
+          "service_3tef2dv",      // Vervang met je Service ID
+          "template_hxxig29",     // Vervang met je Template ID
+          {
+            to_name: "Ontvanger",   // Voeg hier de naam van de ontvanger in (optioneel)
+            from_name: formData.name,  // De naam van de afzender (formData.name)
+            from_email: formData.email, // De e-mail van de afzender
+            message: formData.message,
+          },
+          "iiIKDTgJCQopq7N1q"        // Vervang met je Public Key
       );
+
 
       if (result.text === "OK") {
         setSuccessMessage("Je bericht is verzonden!");
-        setFormData({ name: "", from_name: "", message: "" });
+        setFormData({ name: "", email: "", message: "" });
       }
     } catch (error) {
       console.error("Fout bij het verzenden:", JSON.stringify(error, null, 2));
@@ -78,7 +80,7 @@ export default function Contact() {
                 type="email"
                 id="email"
                 name="email"
-                value={formData.from_name}
+                value={formData.email}
                 onChange={handleChange}
                 className={styles.input}
                 required
